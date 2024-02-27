@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digilight</title>
+    <!-- Adicione os links para as bibliotecas Tailwind CSS e FontAwesome aqui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Adicione regras de estilo personalizadas aqui, se necessário */
+      .bg-primary {
+        background: #0000ff;
+      }
+      .bg-secondary {
+        background: #ff0000;
+      }
+      .bg-gray {
+        background: #080808;
+      }
+      .btn-pix {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .btn-pix:hover {
+        background-color: #4a5568; /* Altere para a cor desejada no hover */
+        border-color: #4a5568; /* Altere para a cor desejada no hover */
+      }
+
+      .trapezio {
+        border-bottom: 70px solid #0000ff;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+      }
+
+      /* Estilos para ajustar a visualização em dispositivos móveis */
+      body {
+        /* margin: 0; */
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #4a5568; /* Altere para a cor desejada */
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray h-screen flex flex-col items-center justify-center px-4">
+    <!-- Cabeçalho (Header) -->
+    <header
+      class="text-center py-4 flex flex-col items-center justify-center w-full"
+    >
+      <!-- Avatar/Logo -->
+      <div>
+        <img
+          src="assets/img/logo-transparente.png"
+          alt="Logo"
+          class="w-96 h-auto mx-auto"
+        />
+      </div>
+      <!-- Título e Subtítulo -->
+      <h1 class="text-3xl font-bold mt-4">@euroar.londrina</h1>
+      <p class="text-gray-100">Entre em contato conosco!</p>
+    </header>
+
+    <!-- Conteúdo (Content) -->
+    <section class="container flex flex-col mx-auto py-8 sm:px-8 items-center">
+      <!-- Lista de Links -->
+      <ul class="flex flex-col items-center gap-6 lg:px-96 sm:px-6">
+        <li class="text-center w-full">
+          <a
+            href="https://www.instagram.com/agenciadigilight/"
+            target="_blank"
+            class="btn-link bg-white hover:bg-gray-200 text-gray-900 py-4 px-4 rounded-full inline-block w-80"
+          >
+            <i class="fab fa-instagram mr-2"></i> Instagram
+          </a>
+        </li>
+        <li class="text-center w-full">
+          <a
+            href="https://api.whatsapp.com/send?phone=+5543988578911&text=Olá! Gostaria de mais informações"
+            target="_blank"
+            class="btn-link bg-white hover:bg-gray-200 text-gray-900 py-4 px-4 rounded-full inline-block w-80"
+          >
+            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+          </a>
+        </li>
+        <li class="text-center w-full">
+          <a
+            href="mailto:gabriel.galvao736@gmail.com"
+            class="btn-link bg-white hover:bg-gray-200 text-gray-900 py-4 px-4 rounded-full inline-block w-80"
+          >
+            <i class="far fa-envelope mr-2"></i> Email
+          </a>
+        </li>
+        <!-- <li class="text-center w-full">
+          <a
+            href="https://maps.app.goo.gl/y3zXNFtHv573RZme6"
+            target="_blank"
+            class="btn-link bg-white hover:bg-gray-200 text-gray-900 py-4 px-4 rounded-full inline-block w-80"
+          >
+            <i class="fas fa-map-marker-alt mr-2"></i> Localização
+          </a>
+        </li> -->
+        <!-- Botão PIX -->
+        <li class="text-center w-full">
+          <button
+            class="btn-pix py-4 px-4 rounded-full inline-block w-80"
+            onclick="copyPix()"
+          >
+            <i class="far fa-copy mr-2"></i> Chave PIX
+          </button>
+        </li>
+        <!-- Div oculta para armazenar a chave PIX -->
+        <div id="pixValue" class="hidden">
+          38d60e74-d37b-4ba6-bb53-442f8877ee9c
+        </div>
+      </ul>
+    </section>
+
+    <!-- Rodapé (Footer) -->
+    <!-- <div class="footer">
+      <p>Rodapé</p>
+    </div> -->
+
+    <script>
+      function copyPix() {
+        var pixValue = document.getElementById("pixValue").innerText;
+        var dummyInput = document.createElement("input");
+        document.body.appendChild(dummyInput);
+        dummyInput.setAttribute("value", pixValue);
+        dummyInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummyInput);
+        alert("Chave PIX copiada para a área de transferência!");
+      }
+    </script>
+  </body>
+</html>
